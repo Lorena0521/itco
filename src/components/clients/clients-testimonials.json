@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_clients_clients_testimonials",
+  "info": {
+    "displayName": "Clients_Testimonials"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "Our_clients": {
+      "type": "component",
+      "repeatable": true,
+      "component": "members.latest-project"
+    }
+  }
+}

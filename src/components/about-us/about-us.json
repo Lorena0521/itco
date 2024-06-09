@@ -1,0 +1,41 @@
+{
+  "collectionName": "components_about_us_about_uses",
+  "info": {
+    "displayName": "about-us",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "type": "blocks",
+      "required": true
+    },
+    "percentage": {
+      "displayName": "percentage",
+      "type": "component",
+      "repeatable": true,
+      "component": "percentage.percentage",
+      "required": true
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "image2": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

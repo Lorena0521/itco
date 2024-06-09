@@ -1,0 +1,53 @@
+{
+  "kind": "singleType",
+  "collectionName": "solution_service_teams",
+  "info": {
+    "singularName": "solution-service-team",
+    "pluralName": "solution-service-teams",
+    "displayName": "solution-service-team",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "banner": {
+      "displayName": "banner",
+      "type": "component",
+      "repeatable": true,
+      "component": "banner.banner"
+    },
+    "card": {
+      "type": "dynamiczone",
+      "components": [
+        "cards.card"
+      ],
+      "required": true
+    },
+    "abou_us": {
+      "type": "component",
+      "repeatable": false,
+      "component": "about-us.about-us"
+    },
+    "Our_team_members": {
+      "displayName": "Our_team_members",
+      "type": "component",
+      "repeatable": false,
+      "component": "members.our-team-members",
+      "required": true
+    },
+    "Latest_Project": {
+      "type": "component",
+      "repeatable": false,
+      "component": "members.latest-project"
+    },
+    "Clients_Testimonials": {
+      "displayName": "Clients_Testimonials",
+      "type": "component",
+      "repeatable": false,
+      "component": "clients.clients-testimonials",
+      "required": true
+    }
+  }
+}
