@@ -59,8 +59,8 @@ export interface MembersLatestProject extends Schema.Component {
     description: '';
   };
   attributes: {
-    name: Attribute.String & Attribute.Required;
     image: Attribute.Media<'images'> & Attribute.Required;
+    name: Attribute.String & Attribute.Required;
     description: Attribute.Text & Attribute.Required;
   };
 }
@@ -74,7 +74,6 @@ export interface MembersMember extends Schema.Component {
   attributes: {
     image: Attribute.Media<'images', true> & Attribute.Required;
     name: Attribute.String & Attribute.Required;
-    profession: Attribute.String & Attribute.Required;
   };
 }
 
@@ -82,10 +81,11 @@ export interface MembersOurTeamMembers extends Schema.Component {
   collectionName: 'components_members_our_team_members';
   info: {
     displayName: 'Our_team_members';
+    description: '';
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
-    Member: Attribute.Component<'members.member', true> & Attribute.Required;
+    proyect: Attribute.Component<'proyect.proyect', true>;
   };
 }
 
@@ -100,6 +100,18 @@ export interface PercentagePercentage extends Schema.Component {
   };
 }
 
+export interface ProyectProyect extends Schema.Component {
+  collectionName: 'components_proyect_proyects';
+  info: {
+    displayName: 'Proyect';
+    description: '';
+  };
+  attributes: {
+    image: Attribute.Media<'images', true> & Attribute.Required;
+    name: Attribute.String & Attribute.Required;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -111,6 +123,7 @@ declare module '@strapi/types' {
       'members.member': MembersMember;
       'members.our-team-members': MembersOurTeamMembers;
       'percentage.percentage': PercentagePercentage;
+      'proyect.proyect': ProyectProyect;
     }
   }
 }

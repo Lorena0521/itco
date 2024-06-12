@@ -40,7 +40,7 @@
     "Latest_Project": {
       "type": "component",
       "repeatable": false,
-      "component": "members.latest-project"
+      "component": "members.our-team-members"
     },
     "Clients_Testimonials": {
       "displayName": "Clients_Testimonials",

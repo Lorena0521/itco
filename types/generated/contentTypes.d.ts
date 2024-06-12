@@ -380,7 +380,7 @@ export interface ApiSolutionServiceTeamSolutionServiceTeam
     abou_us: Attribute.Component<'about-us.about-us'>;
     Our_team_members: Attribute.Component<'members.our-team-members'> &
       Attribute.Required;
-    Latest_Project: Attribute.Component<'members.latest-project'>;
+    Latest_Project: Attribute.Component<'members.our-team-members'>;
     Clients_Testimonials: Attribute.Component<'clients.clients-testimonials'> &
       Attribute.Required;
     createdAt: Attribute.DateTime;

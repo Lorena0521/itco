@@ -1,7 +1,8 @@
 {
   "collectionName": "components_members_our_team_members",
   "info": {
-    "displayName": "Our_team_members"
+    "displayName": "Our_team_members",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -9,12 +10,10 @@
       "type": "string",
       "required": true
     },
-    "Member": {
-      "displayName": "member",
+    "proyect": {
       "type": "component",
       "repeatable": true,
-      "component": "members.member",
-      "required": true
+      "component": "proyect.proyect"
     }
   }
 }
