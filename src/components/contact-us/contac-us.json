@@ -1,0 +1,42 @@
+{
+  "collectionName": "components_contact_us_contac_uses",
+  "info": {
+    "displayName": "contac_us",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "First_name": {
+      "type": "string",
+      "required": true
+    },
+    "Last_name": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "phone": {
+      "type": "integer",
+      "required": true
+    },
+    "Company_name": {
+      "type": "string",
+      "required": true
+    },
+    "Company_address": {
+      "type": "email",
+      "required": true
+    }
+  }
+}

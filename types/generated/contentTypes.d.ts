@@ -362,38 +362,40 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiSolutionServiceTeamSolutionServiceTeam
-  extends Schema.SingleType {
-  collectionName: 'solution_service_teams';
+export interface ApiSolutionserviceteamSolutionserviceteam
+  extends Schema.CollectionType {
+  collectionName: 'solutionserviceteams';
   info: {
-    singularName: 'solution-service-team';
-    pluralName: 'solution-service-teams';
-    displayName: 'solution-service-team';
+    singularName: 'solutionserviceteam';
+    pluralName: 'solutionserviceteams';
+    displayName: 'solutionserviceteam';
     description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    banner: Attribute.Component<'banner.banner', true>;
-    card: Attribute.DynamicZone<['cards.card']> & Attribute.Required;
-    abou_us: Attribute.Component<'about-us.about-us'>;
-    Our_team_members: Attribute.Component<'members.our-team-members'> &
+    banner: Attribute.Component<'banner.banner', true> & Attribute.Required;
+    cards: Attribute.DynamicZone<['cards.card']> & Attribute.Required;
+    about_us: Attribute.Component<'about-us.about-us'> & Attribute.Required;
+    members: Attribute.Component<'members.our-team-members'> &
       Attribute.Required;
-    Latest_Project: Attribute.Component<'members.our-team-members'>;
-    Clients_Testimonials: Attribute.Component<'clients.clients-testimonials'> &
+    Latest_Project: Attribute.Component<'latest-project.latest-project'>;
+    Our_clients: Attribute.Component<'clients.clients-testimonials', true>;
+    contact_us: Attribute.Component<'contact-us.contac-us'> &
       Attribute.Required;
+    slug: Attribute.UID & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::solution-service-team.solution-service-team',
+      'api::solutionserviceteam.solutionserviceteam',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::solution-service-team.solution-service-team',
+      'api::solutionserviceteam.solutionserviceteam',
       'oneToOne',
       'admin::user'
     > &
@@ -629,6 +631,53 @@ export interface PluginContentReleasesReleaseAction
   };
 }
 
+export interface PluginI18NLocale extends Schema.CollectionType {
+  collectionName: 'i18n_locale';
+  info: {
+    singularName: 'locale';
+    pluralName: 'locales';
+    collectionName: 'locales';
+    displayName: 'Locale';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.SetMinMax<
+        {
+          min: 1;
+          max: 50;
+        },
+        number
+      >;
+    code: Attribute.String & Attribute.Unique;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::i18n.locale',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::i18n.locale',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginUsersPermissionsPermission
   extends Schema.CollectionType {
   collectionName: 'up_permissions';
@@ -780,53 +829,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface PluginI18NLocale extends Schema.CollectionType {
-  collectionName: 'i18n_locale';
-  info: {
-    singularName: 'locale';
-    pluralName: 'locales';
-    collectionName: 'locales';
-    displayName: 'Locale';
-    description: '';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
-  };
-  attributes: {
-    name: Attribute.String &
-      Attribute.SetMinMax<
-        {
-          min: 1;
-          max: 50;
-        },
-        number
-      >;
-    code: Attribute.String & Attribute.Unique;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'plugin::i18n.locale',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'plugin::i18n.locale',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -837,15 +839,15 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::solution-service-team.solution-service-team': ApiSolutionServiceTeamSolutionServiceTeam;
+      'api::solutionserviceteam.solutionserviceteam': ApiSolutionserviceteamSolutionserviceteam;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
+      'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'plugin::i18n.locale': PluginI18NLocale;
     }
   }
 }

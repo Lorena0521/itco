@@ -7,12 +7,12 @@
   "options": {},
   "attributes": {
     "image": {
-      "type": "media",
-      "multiple": true,
-      "required": true,
       "allowedTypes": [
         "images"
-      ]
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": true
     },
     "name": {
       "type": "string",

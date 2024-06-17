@@ -52,6 +52,35 @@ export interface ClientsClientsTestimonials extends Schema.Component {
   };
 }
 
+export interface ContactUsContacUs extends Schema.Component {
+  collectionName: 'components_contact_us_contac_uses';
+  info: {
+    displayName: 'contac_us';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.Text & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    First_name: Attribute.String & Attribute.Required;
+    Last_name: Attribute.String & Attribute.Required;
+    email: Attribute.Email & Attribute.Required;
+    phone: Attribute.Integer & Attribute.Required;
+    Company_name: Attribute.String & Attribute.Required;
+    Company_address: Attribute.Email & Attribute.Required;
+  };
+}
+
+export interface LatestProjectLatestProject extends Schema.Component {
+  collectionName: 'components_latest_project_latest_projects';
+  info: {
+    displayName: 'Latest_Project';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    proyect: Attribute.Component<'proyect.proyect', true>;
+  };
+}
+
 export interface MembersLatestProject extends Schema.Component {
   collectionName: 'components_members_latest_projects';
   info: {
@@ -62,6 +91,7 @@ export interface MembersLatestProject extends Schema.Component {
     image: Attribute.Media<'images'> & Attribute.Required;
     name: Attribute.String & Attribute.Required;
     description: Attribute.Text & Attribute.Required;
+    rating: Attribute.Media<'images'> & Attribute.Required;
   };
 }
 
@@ -119,6 +149,8 @@ declare module '@strapi/types' {
       'banner.banner': BannerBanner;
       'cards.card': CardsCard;
       'clients.clients-testimonials': ClientsClientsTestimonials;
+      'contact-us.contac-us': ContactUsContacUs;
+      'latest-project.latest-project': LatestProjectLatestProject;
       'members.latest-project': MembersLatestProject;
       'members.member': MembersMember;
       'members.our-team-members': MembersOurTeamMembers;

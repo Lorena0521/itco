@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_latest_project_latest_projects",
+  "info": {
+    "displayName": "Latest_Project"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "proyect": {
+      "type": "component",
+      "repeatable": true,
+      "component": "proyect.proyect"
+    }
+  }
+}
